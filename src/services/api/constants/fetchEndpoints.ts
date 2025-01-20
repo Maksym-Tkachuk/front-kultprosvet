@@ -1,3 +1,3 @@
-export const FetchEndpoint = {
+export const fetchEndpoints = {
   TICKETS: '/tickets',
 } as const;

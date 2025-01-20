@@ -1,21 +1,17 @@
-import { useState } from 'react';
 import { Search } from '../../components/Search';
 import Skeleton from '../../components/Skeleton';
-import { UserType } from '../../constants/userType';
-
-import { useGetTickets } from '../hooks/useGetTickets';
 import InfinityScroll from '../InfinityScroll';
-import { useDebounce } from '../hooks/useDebounce';
+import { useTouristUsersTicketsList } from './useTouristUsersTicketsList';
 
 export const TouristUsersTicketsList = (): JSX.Element => {
-  const [description, setDescription] = useState('');
-  const debouncedDescription = useDebounce(description, 400);
-
-  const { isLoading, tickets, fetchNextPage, hasNextPage } = useGetTickets({
-    userType: UserType.TOURIST,
-    searchDescription: debouncedDescription,
-  });
-
+  const {
+    isLoading,
+    tickets,
+    fetchNextPage,
+    hasNextPage,
+    setDescription,
+    description,
+  } = useTouristUsersTicketsList();
   return (
     <div>
       <div className="sticky z-50 grid grid-cols-2 gap-3 px-6 -mx-6 bg-white top-16">

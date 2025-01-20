@@ -1,6 +1,6 @@
 import { api } from '../../../config/api';
 
-import { FetchEndpoint } from '../constants/fetchEndpoint';
+import { fetchEndpoints } from '../constants/fetchEndpoints';
 
 import { GetByUserTypeArgsT, GetByUserTypeResT } from './types';
 
@@ -23,7 +23,7 @@ class Ticket {
       queryParams.searchTitle = searchTitle;
     }
 
-    return api(FetchEndpoint.TICKETS, {
+    return api(fetchEndpoints.TICKETS, {
       queryParams,
     });
   }

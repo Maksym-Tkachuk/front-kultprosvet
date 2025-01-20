@@ -25,11 +25,11 @@ export const Tickets = (): JSX.Element => {
       <div className="w-full max-w-4xl h-[80vh] px-6 pb-6 bg-white rounded-lg shadow-lg overflow-y-auto">
         <div className="sticky top-0 z-50 flex items-center justify-end gap-1 p-6 -mx-6 bg-white cursor-pointer">
           <GridIcon
-            color={userType === UserType.LOCAL ? 'red' : '#000'}
+            color={userType === UserType.LOCAL ? '#ff0000' : '#000'}
             onClick={handleChangeUserType(UserType.LOCAL)}
           />
           <ListIcon
-            color={userType === UserType.TOURIST ? 'red' : '#000'}
+            color={userType === UserType.TOURIST ? '#ff0000' : '#000'}
             onClick={handleChangeUserType(UserType.TOURIST)}
           />
         </div>

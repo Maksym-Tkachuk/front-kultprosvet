@@ -1,32 +1,20 @@
-import { useState } from 'react';
 import { Search } from '../../components/Search';
-import { UserType } from '../../constants/userType';
-
-import { useGetTickets } from '../hooks/useGetTickets';
 import InfinityScroll from '../InfinityScroll';
-import { useDebounce } from '../hooks/useDebounce';
 import Skeleton from '../../components/Skeleton';
+import { useLocalUsersTicketsList } from './useLocalUsersTicketsList';
 
 export const LocalUsersTicketsList = (): JSX.Element => {
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const debouncedTitle = useDebounce(title, 400);
-  const debouncedDescription = useDebounce(description, 400);
-
-  const { isLoading, tickets, fetchNextPage, hasNextPage } = useGetTickets({
-    userType: UserType.LOCAL,
-    searchDescription: debouncedDescription,
-    searchTitle: debouncedTitle,
-  });
-
-  const handleDateFormat = (dateString: string) => {
-    const options: Intl.DateTimeFormatOptions = {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    };
-    return new Date(dateString).toLocaleDateString(undefined, options);
-  };
+  const {
+    fetchNextPage,
+    hasNextPage,
+    tickets,
+    isLoading,
+    setTitle,
+    setDescription,
+    title,
+    description,
+    handleDateFormat,
+  } = useLocalUsersTicketsList();
 
   return (
     <div>
