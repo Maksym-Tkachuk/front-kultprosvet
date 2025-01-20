@@ -1,5 +1,9 @@
 # README
 
+## Repository
+
+This is the URL to the repository: [https://github.com/Maksym-Tkachuk/front-kultprosvet.git](https://github.com/Maksym-Tkachuk/front-kultprosvet.git).
+
 ## Installation
 
 To set up and install all the dependencies for this project, please follow these steps:
@@ -9,8 +13,8 @@ To set up and install all the dependencies for this project, please follow these
 2. Clone the repository and navigate to the project folder:
 
    ```bash
-   git clone <repository-url>
-   cd <project-folder>
+   git clone https://github.com/Maksym-Tkachuk/front-kultprosvet.git
+   cd front-kultprosvet
    ```
 
 3. Install all dependencies by running the following command:
@@ -18,6 +22,10 @@ To set up and install all the dependencies for this project, please follow these
    ```bash
    yarn
    ```
+
+## Environment Setup
+
+Make sure to specify the URL to your actual local server in the `.env.development` file to ensure the frontend communicates correctly with the backend.
 
 ## Starting the Application
 
@@ -27,9 +35,10 @@ To start the application, use the following command:
 yarn start
 ```
 
-This will start the development server, and you can access the application by navigating to [http://localhost:3000](http://localhost:3000) in your browser.
+This will start the development server, and you can access the application by navigating to [http://localhost:3001](http://localhost:3001) in your browser.
 
----
+## Accessing the Deployed Site
 
-Feel free to reach out if you encounter any issues during the setup process!
+You can access the deployed site at the following URL:
 
+[https://front-kultprosvet.vercel.app](https://front-kultprosvet.vercel.app)
