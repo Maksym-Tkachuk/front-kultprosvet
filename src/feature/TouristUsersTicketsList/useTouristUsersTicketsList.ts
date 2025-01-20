@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { DEBOUNCE_DELAY } from '../../constants/debounceDelay';
-import { useGetTickets } from '../hooks/useGetTickets';
-import { useDebounce } from '../hooks/useDebounce';
+import { useGetTickets } from '../../hooks/useGetTickets';
+import { useDebounce } from '../../hooks/useDebounce';
 import { UserType } from '../../constants/userType';
 
 export const useTouristUsersTicketsList = () => {

@@ -1,5 +1,5 @@
 import { useRef, type ReactNode } from 'react';
-import { useObserver } from '../hooks/useObserver';
+import { useObserver } from '../../hooks/useObserver';
 
 type InfinityScrollProps = {
   canLoad?: boolean;

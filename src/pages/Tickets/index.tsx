@@ -2,7 +2,7 @@ import { useSearchParams } from 'react-router';
 import { GridIcon, ListIcon } from '../../components/Icons';
 import { SearchParam } from '../../constants/searchParam';
 import { UserType } from '../../constants/userType';
-import { useEnumSearchParam } from '../../feature/hooks/useEnumSearchParam';
+import { useEnumSearchParam } from '../../hooks/useEnumSearchParam';
 
 import { ticketsLists } from './constants';
 

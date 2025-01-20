@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { DEBOUNCE_DELAY } from '../../constants/debounceDelay';
-import { useGetTickets } from '../hooks/useGetTickets';
+import { useGetTickets } from '../../hooks/useGetTickets';
 import { UserType } from '../../constants/userType';
-import { useDebounce } from '../hooks/useDebounce';
+import { useDebounce } from '../../hooks/useDebounce';
 
 export const useLocalUsersTicketsList = () => {
   const [title, setTitle] = useState('');

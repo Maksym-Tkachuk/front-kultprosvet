@@ -1,8 +1,8 @@
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { useEffect } from 'react';
-import { CacheQueryKey } from '../../../constants/cacheQueryKey';
-import { UserType } from '../../../constants/userType';
-import { ticket } from '../../../services/api/Ticket';
+import { CacheQueryKey } from '../../constants/cacheQueryKey';
+import { UserType } from '../../constants/userType';
+import { ticket } from '../../services/api/Ticket';
 
 export const useGetTickets = ({
   userType,
