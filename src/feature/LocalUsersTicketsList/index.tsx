@@ -14,6 +14,7 @@ export const LocalUsersTicketsList = (): JSX.Element => {
     title,
     description,
     handleDateFormat,
+    isFetchingNextPage,
   } = useLocalUsersTicketsList();
 
   return (
@@ -29,7 +30,7 @@ export const LocalUsersTicketsList = (): JSX.Element => {
 
       <InfinityScroll
         onNext={fetchNextPage}
-        canLoad={!isLoading && hasNextPage}
+        canLoad={!isLoading && hasNextPage && !isFetchingNextPage}
       >
         <div className="grid grid-cols-3 gap-6">
           {isLoading ? (
@@ -56,6 +57,7 @@ export const LocalUsersTicketsList = (): JSX.Element => {
               </div>
             ))
           )}
+          {isFetchingNextPage && <Skeleton count={3} height={290} />}
         </div>
       </InfinityScroll>
     </div>

@@ -5,7 +5,7 @@ import { fetchEndpoints } from '../constants/fetchEndpoints';
 import { GetByUserTypeArgsT, GetByUserTypeResT } from './types';
 
 class Ticket {
-  async getByUserType({
+  async get({
     cursor,
     userType,
     searchDescription,

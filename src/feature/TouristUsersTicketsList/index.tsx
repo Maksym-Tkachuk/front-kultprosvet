@@ -11,6 +11,7 @@ export const TouristUsersTicketsList = (): JSX.Element => {
     hasNextPage,
     setDescription,
     description,
+    isFetchingNextPage,
   } = useTouristUsersTicketsList();
   return (
     <div>
@@ -23,11 +24,11 @@ export const TouristUsersTicketsList = (): JSX.Element => {
       </div>
       <InfinityScroll
         onNext={fetchNextPage}
-        canLoad={!isLoading && hasNextPage}
+        canLoad={!isLoading && hasNextPage && !isFetchingNextPage}
       >
         <div className="flex flex-col gap-4">
           {isLoading ? (
-            <Skeleton count={5} height={106} />
+            <Skeleton count={3} height={106} />
           ) : (
             tickets.map(ticket => (
               <div
@@ -43,6 +44,7 @@ export const TouristUsersTicketsList = (): JSX.Element => {
               </div>
             ))
           )}
+          {isFetchingNextPage && <Skeleton count={3} height={106} />}
         </div>
       </InfinityScroll>
     </div>

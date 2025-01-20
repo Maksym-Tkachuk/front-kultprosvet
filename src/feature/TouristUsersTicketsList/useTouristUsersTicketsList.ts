@@ -8,10 +8,11 @@ export const useTouristUsersTicketsList = () => {
   const [description, setDescription] = useState('');
   const debouncedDescription = useDebounce(description, DEBOUNCE_DELAY);
 
-  const { isLoading, tickets, fetchNextPage, hasNextPage } = useGetTickets({
-    userType: UserType.TOURIST,
-    searchDescription: debouncedDescription,
-  });
+  const { isLoading, tickets, fetchNextPage, hasNextPage, isFetchingNextPage } =
+    useGetTickets({
+      userType: UserType.TOURIST,
+      searchDescription: debouncedDescription,
+    });
 
   return {
     isLoading,
@@ -20,5 +21,6 @@ export const useTouristUsersTicketsList = () => {
     hasNextPage,
     setDescription,
     description,
+    isFetchingNextPage,
   };
 };

@@ -13,24 +13,26 @@ export const useGetTickets = ({
   searchTitle?: string;
   searchDescription?: string;
 }) => {
-  const { data, isLoading, isError, error, fetchNextPage, hasNextPage } =
-    useInfiniteQuery({
-      queryKey: [
-        CacheQueryKey.TICKETS,
+  const {
+    data,
+    isLoading,
+    isError,
+    error,
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
+  } = useInfiniteQuery({
+    queryKey: [CacheQueryKey.TICKETS, userType, searchTitle, searchDescription],
+    queryFn: ({ pageParam }: { pageParam: string | null }) =>
+      ticket.get({
         userType,
+        cursor: pageParam,
         searchTitle,
         searchDescription,
-      ],
-      queryFn: ({ pageParam }: { pageParam: string | null }) =>
-        ticket.getByUserType({
-          userType,
-          cursor: pageParam,
-          searchTitle,
-          searchDescription,
-        }),
-      getNextPageParam: lastPage => lastPage.nextCursor || null,
-      initialPageParam: null,
-    });
+      }),
+    getNextPageParam: lastPage => lastPage.nextCursor || null,
+    initialPageParam: null,
+  });
 
   useEffect(() => {
     if (isError) {
@@ -45,5 +47,6 @@ export const useGetTickets = ({
     tickets,
     fetchNextPage,
     hasNextPage,
+    isFetchingNextPage,
   };
 };

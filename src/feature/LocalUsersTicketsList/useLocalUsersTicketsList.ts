@@ -10,11 +10,12 @@ export const useLocalUsersTicketsList = () => {
   const debouncedTitle = useDebounce(title, DEBOUNCE_DELAY);
   const debouncedDescription = useDebounce(description, DEBOUNCE_DELAY);
 
-  const { isLoading, tickets, fetchNextPage, hasNextPage } = useGetTickets({
-    userType: UserType.LOCAL,
-    searchDescription: debouncedDescription,
-    searchTitle: debouncedTitle,
-  });
+  const { isLoading, tickets, fetchNextPage, hasNextPage, isFetchingNextPage } =
+    useGetTickets({
+      userType: UserType.LOCAL,
+      searchDescription: debouncedDescription,
+      searchTitle: debouncedTitle,
+    });
 
   const handleDateFormat = (dateString: string) => {
     const options: Intl.DateTimeFormatOptions = {
@@ -35,5 +36,6 @@ export const useLocalUsersTicketsList = () => {
     title,
     description,
     handleDateFormat,
+    isFetchingNextPage,
   };
 };
